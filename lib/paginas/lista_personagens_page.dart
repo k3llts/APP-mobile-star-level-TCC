@@ -84,7 +84,7 @@ class CartaoPersonagem extends StatelessWidget {
                   personagem.subtitulo!,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 14,
                     height: 1.1,
                   ),
                 ),
@@ -92,7 +92,7 @@ class CartaoPersonagem extends StatelessWidget {
                 personagem.descricao,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 10.5,
+                  fontSize: 11,
                   height: 1.12,
                   fontWeight: FontWeight.w400,
                 ),
