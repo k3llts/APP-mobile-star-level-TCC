@@ -21,7 +21,7 @@ const List<Integrante> integrantes = [
     nome: 'Kelvin Pereira Lima',
     cargo: 'Modelador 3D / Programador mobile',
     descricao: 'Desenvolveu a estrutura do aplicativo em Flutter, criou a interface visual e implementou o sistema de navegação entre as telas.\n\nAlém disso, foi responsável pela modelagem 3D dos objetos do jogo e alguns dos NPCs, garantindo a integração entre os elementos visuais e a funcionalidade do aplicativo.',
-    caminhoImagem: 'assets/imagens/kelvin meme.png', 
+    caminhoImagem: 'assets/imagens/kelvin serio.jpg', 
   ),
   Integrante(
     nome: 'Victor Mollo Cabral',
