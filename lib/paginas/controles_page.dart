@@ -19,7 +19,7 @@ class ControlesPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,6 +32,17 @@ class ControlesPage extends StatelessWidget {
                     '• W: movimenta para frente;\n• A: movimenta para a esquerda;\n• S: movimenta para trás;\n• D: movimenta para a direita.',
                     style: TextStyle(color: Colors.white70),
                   ),
+
+              ClipRRect(
+               borderRadius: BorderRadius.circular(8),
+               child: Image.asset(
+              'assets/imagens/ensinandoBotoes.gif',
+               width: 150,
+               height: 150,
+               fit: BoxFit.contain, // <--- Altere para contain
+                 filterQuality: FilterQuality.none, // <--- Mantém o pixel art nítido
+                 ),
+                ),
 
                   SizedBox(height: 20),
                   Text('Pulo', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
