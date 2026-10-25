@@ -21,26 +21,32 @@ const List<Integrante> integrantes = [
     nome: 'Kelvin Pereira Lima',
     cargo: 'Modelador 3D / Programador mobile',
     descricao: 'Desenvolveu a estrutura do aplicativo em Flutter, criou a interface visual e implementou o sistema de navegação entre as telas.\n\nAlém disso, foi responsável pela modelagem 3D dos objetos do jogo e alguns dos NPCs, garantindo a integração entre os elementos visuais e a funcionalidade do aplicativo.',
+    caminhoImagem: 'assets/imagens/kelvin meme.png', 
   ),
   Integrante(
     nome: 'Victor Mollo Cabral',
     cargo: 'Criador de texturas 3D / Designer e modelador de Personagens',
     descricao: 'Principal responsável pela criação das texturas 3D dos objetos do jogo, garantindo que eles tenham uma aparência cartoonesca e atraente.\n\nAlém disso, contribuiu para o design e modelagem de personagens, trazendo vida e personalidade aos elementos do jogo.',
+    caminhoImagem: 'assets/imagens/Mollo.jpeg', 
   ),
   Integrante(
     nome: 'Miguel Fauzi Carvalho Santos',
     cargo: 'Documentação / DS / Roterista',
     descricao: 'Responsável pela documentação do projeto, garantindo que todas as etapas do desenvolvimento fossem registradas e organizadas.\n\nAlém disso, atuou como roteirista, contribuindo para a criação da narrativa do jogo',
+    caminhoImagem: 'assets/imagens/miguel.jpeg',
   ),
   Integrante(
     nome: 'Henrique Tomazine',
     cargo: 'Auxiliar de 3D / Level Designer',
     descricao: 'Responsável por auxiliar na modelagem 3D de objetos do jogo, além de contribuir para o design dos níveis e ambientes do jogo.',
-  ),
+    caminhoImagem: 'assets/imagens/flakes.jpeg',
+  )
+  ,
   Integrante(
     nome: 'Daniel de Souza',
     cargo: 'Programador Principal',
     descricao: 'Responsável pela programação do jogo, incluindo a implementação da física, mecânicas de jogo e integração com os elementos visuais.',
+    caminhoImagem: 'assets/imagens/mini pekka.jpeg', 
   )
 ];
 
