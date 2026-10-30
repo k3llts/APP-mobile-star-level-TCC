@@ -5,6 +5,7 @@ import '../paginas/itens_coletaveis_page.dart';
 import '../paginas/controles_page.dart';
 import '../paginas/curiosidades_page.dart';
 import '../paginas/sobre_page.dart';
+import '../paginas/blog_page.dart';
 
 class BarraNavegacao extends StatelessWidget {
   const BarraNavegacao({super.key});
@@ -14,30 +15,39 @@ class BarraNavegacao extends StatelessWidget {
     return Container(
       height: 63,
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      color: const Color(0xFFB800E5),
+      color: const Color.fromARGB(255, 0, 0, 0),
       child: Row(
         children: [
           const Spacer(),
-          // Texto Blog
-          const _LinkNavegacao(texto: 'Blog'),
+          
+          //Botão Blog Clicável
+          InkWell(
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const BlogPage()),
+              );
+            },
+            child: const _LinkNavegacao(texto: 'Blog'),
+          ),
           const SizedBox(width: 15),
 
           // Menu "Jogos" com PopupMenuButton
           PopupMenuButton<String>(
             offset: const Offset(0, 50),
-            color: Colors.black,
+            color: const Color.fromARGB(255, 0, 0, 0),
             child: const Row(
               children: [
                 _LinkNavegacao(texto: 'Jogos'),
-                Icon(Icons.arrow_drop_down, color: Colors.black, size: 18),
+                Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 212, 0, 255), size: 18),
               ],
             ),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 enabled: false,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       'Timmy Build Your Dates',
                       style: TextStyle(
@@ -141,7 +151,7 @@ class _LinkNavegacao extends StatelessWidget {
     return Text(
       texto,
       style: const TextStyle(
-        color: Colors.black,
+        color: Color.fromARGB(255, 213, 1, 255),
         fontSize: 14,
         fontWeight: FontWeight.w600,
       ),

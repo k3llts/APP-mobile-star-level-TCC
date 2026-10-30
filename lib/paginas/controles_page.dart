@@ -39,8 +39,8 @@ class ControlesPage extends StatelessWidget {
               'assets/imagens/ensinandoBotoes.gif',
                width: 150,
                height: 150,
-               fit: BoxFit.contain, // <--- Altere para contain
-                 filterQuality: FilterQuality.none, // <--- Mantém o pixel art nítido
+               fit: BoxFit.contain, //Altere para contain
+                 filterQuality: FilterQuality.none, //Mantém o pixel art nítido
                  ),
                 ),
 
@@ -49,6 +49,17 @@ class ControlesPage extends StatelessWidget {
                   SizedBox(height: 8),
                   Text('A tecla Espaço executa o pulo quando o jogador está sobre o chão.\n\nA possibilidade de pular é controlada pela verificação de contato com o solo.', style: TextStyle(color: Colors.white70)
                   ),
+
+                   ClipRRect(
+               borderRadius: BorderRadius.circular(8),
+               child: Image.asset(
+              'assets/imagens/ensinando a pular.gif',
+               width: 150,
+               height: 150,
+               fit: BoxFit.contain, //Altere para contain
+                 filterQuality: FilterQuality.none, //Mantém o pixel art nítido
+                 ),
+                ),
 
                  SizedBox(height: 20),
                   Text('Braços', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),

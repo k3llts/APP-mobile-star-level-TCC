@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'paginas/lista_personagens_page.dart';
+import 'paginas/blog_page.dart';
 
 void main() {
-  runApp(const PersonagensApp());
+  runApp(const BlogApp());
 }
 
-class PersonagensApp extends StatelessWidget {
-  const PersonagensApp({super.key});
+class BlogApp extends StatelessWidget {
+  const BlogApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Lista de Personagens',
+      title: 'Star Level', // Título do aplicativo
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.black,
         fontFamily: 'Arial',
       ),
-      home: const ListaPersonagensPage(),
+      home: const BlogPage(), // Página inicial do aplicativo
     );
   }
 }
