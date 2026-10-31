@@ -15,7 +15,7 @@ class BarraNavegacao extends StatelessWidget {
     return Container(
       height: 63,
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      color: const Color.fromARGB(255, 0, 0, 0),
+      color: const Color.fromARGB(255, 56, 56, 56), // Cor de fundo da barra de navegação
       child: Row(
         children: [
           const Spacer(),
@@ -25,7 +25,7 @@ class BarraNavegacao extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const BlogPage()),
+                MaterialPageRoute(builder: (context) => BlogPage()),
               );
             },
             child: const _LinkNavegacao(texto: 'Blog'),
@@ -39,7 +39,7 @@ class BarraNavegacao extends StatelessWidget {
             child: const Row(
               children: [
                 _LinkNavegacao(texto: 'Jogos'),
-                Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 212, 0, 255), size: 18),
+                Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 212, 0, 255), size: 18),// cor do ícone da seta
               ],
             ),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -61,35 +61,35 @@ class BarraNavegacao extends StatelessWidget {
               ),
               const PopupMenuDivider(height: 1),
               const PopupMenuItem<String>(
-                value: 'personagens',
+                value: 'personagens',// Adiciona a propriedade value para identificar o item selecionado
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Lista de Personagens', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'produtos',
+                value: 'produtos',// Adiciona a propriedade value para identificar o item selecionado
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Catálogo de Produtos', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'itens',
+                value: 'itens',// Adiciona a propriedade value para identificar o item selecionado
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Itens Coletáveis', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'controles',
+                value: 'controles',// Adiciona a propriedade value para identificar o item selecionado
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Lista de Controles', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'curiosidades',
+                value: 'curiosidades',// Adiciona a propriedade value para identificar o item selecionado
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Lista de Curiosidades', style: TextStyle(color: Colors.white)),
@@ -120,13 +120,14 @@ class BarraNavegacao extends StatelessWidget {
     );
   }
 
+// Função para navegar para a página selecionada, substituindo a tela atual.
   void _navegarPara(BuildContext context, String value) {
     Widget proximaTela;
-    if (value == 'produtos') {
+    if (value == 'produtos') { // Verifica se o valor selecionado é 'produtos'
       proximaTela = const CatalogoProdutosPage();
-    } else if (value == 'itens') {
+    } else if (value == 'itens') { // Verifica se o valor selecionado é 'itens'
       proximaTela = const ItensColetaveisPage();
-    } else if (value == 'controles') {
+    } else if (value == 'controles') { // Verifica se o valor selecionado é 'controles'
       proximaTela = const ControlesPage();
     } else if (value == 'curiosidades') {
       proximaTela = const CuriosidadesPage();
@@ -146,6 +147,7 @@ class _LinkNavegacao extends StatelessWidget {
 
   const _LinkNavegacao({required this.texto});
 
+//controle dos textos da barra de navegação, cor, tamanho e tipo da fonte
   @override
   Widget build(BuildContext context) {
     return Text(

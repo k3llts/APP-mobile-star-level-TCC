@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../componentes/barra_navegacao.dart';
 
-class Integrante {
+class Integrante { // Classe para representar um integrante do grupo de TCC
   final String nome;
   final String cargo;
   final String descricao;
@@ -15,7 +15,7 @@ class Integrante {
   });
 }
 
-// Lista de integrantes do grupo de TCC (altere os dados conforme seu grupo)
+// Lista de integrantes do grupo de TCC
 const List<Integrante> integrantes = [
   Integrante(
     nome: 'Kelvin Pereira Lima',
@@ -50,7 +50,7 @@ const List<Integrante> integrantes = [
   )
 ];
 
-class SobrePage extends StatelessWidget {
+class SobrePage extends StatelessWidget { 
   const SobrePage({super.key});
 
   @override
@@ -139,7 +139,7 @@ class _CartaoIntegrante extends StatelessWidget {
   const _CartaoIntegrante({required this.integrante});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { // Widget para exibir as informações de cada integrante na página "Sobre"
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -155,10 +155,10 @@ class _CartaoIntegrante extends StatelessWidget {
             width: 80,
             height: 95,
             decoration: BoxDecoration(
-              color: const Color(0xFF1B00B8),
+              color: const Color(0xFF1B00B8), // Cor de fundo para o espaço da foto, caso a imagem não esteja disponível
               borderRadius: BorderRadius.circular(8),
             ),
-            child: integrante.caminhoImagem != null
+            child: integrante.caminhoImagem != null // Verifica se o caminho da imagem não é nulo
                 ? ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
@@ -178,7 +178,7 @@ class _CartaoIntegrante extends StatelessWidget {
                 Text(
                   integrante.nome,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 227, 14, 255),
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -186,7 +186,7 @@ class _CartaoIntegrante extends StatelessWidget {
                 Text(
                   integrante.cargo,
                   style: const TextStyle(
-                    color: Color(0xFFB800E5),
+                    color: Color.fromARGB(255, 196, 196, 196),
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../componentes/barra_navegacao.dart';
 
-class Produto {
+class Produto { // Classe para representar um produto no catálogo
   final String nome;
   final String descricao;
   final String preco;
   final String caminhoImagem; // Caminho da foto do produto
 
-  const Produto({
+  const Produto({ // Construtor da classe Produto
     required this.nome,
     required this.descricao,
     required this.preco,
@@ -16,7 +16,7 @@ class Produto {
 }
 
 // Lista de produtos com as respetivas imagens
-const List<Produto> produtos = [
+const List<Produto> produtos = [ // Lista de produtos com as respetivas imagens
   Produto(
     nome: 'Leite Ilatac',
     descricao: '',
@@ -58,7 +58,7 @@ const List<Produto> produtos = [
   ),
 ];
 
-class CatalogoProdutosPage extends StatelessWidget {
+class CatalogoProdutosPage extends StatelessWidget { // Página do catálogo de produtos
   const CatalogoProdutosPage({super.key});
 
   @override
@@ -102,7 +102,7 @@ class CatalogoProdutosPage extends StatelessWidget {
   }
 }
 
-class _CartaoProduto extends StatelessWidget {
+class _CartaoProduto extends StatelessWidget { // Widget para exibir as informações de cada produto no catálogo
   final Produto produto;
 
   const _CartaoProduto({required this.produto});

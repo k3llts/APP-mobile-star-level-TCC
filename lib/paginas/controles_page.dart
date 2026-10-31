@@ -39,7 +39,7 @@ class ControlesPage extends StatelessWidget {
               'assets/imagens/ensinandoBotoes.gif',
                width: 150,
                height: 150,
-               fit: BoxFit.contain, //Altere para contain
+               fit: BoxFit.contain, //isso faz com que a imagem se ajuste dentro do espaço disponível, mantendo sua proporção
                  filterQuality: FilterQuality.none, //Mantém o pixel art nítido
                  ),
                 ),
@@ -56,7 +56,7 @@ class ControlesPage extends StatelessWidget {
               'assets/imagens/ensinando a pular.gif',
                width: 150,
                height: 150,
-               fit: BoxFit.contain, //Altere para contain
+               fit: BoxFit.contain, //isso faz com que a imagem se ajuste dentro do espaço disponível, mantendo sua proporção
                  filterQuality: FilterQuality.none, //Mantém o pixel art nítido
                  ),
                 ),

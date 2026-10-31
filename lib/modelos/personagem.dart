@@ -1,4 +1,4 @@
-class Personagem {
+class Personagem { // Classe que representa um personagem com nome, descrição e subtítulo (opcional)
   final String nome;
   final String descricao;
   final String? subtitulo;
@@ -10,7 +10,7 @@ class Personagem {
   });
 }
 
-const List<Personagem> personagens = [
+const List<Personagem> personagens = [ // Lista de personagens com suas descrições e subtítulos (se houver)
   Personagem(
     nome: 'M.Genérico',
     descricao:

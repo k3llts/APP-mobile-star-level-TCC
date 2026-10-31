@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../componentes/barra_navegacao.dart';
 
-class ItemColetavel {
+class ItemColetavel { // Classe para representar um item coletável
   final String nome;
   final String descricao;
   final String qualidade;
@@ -15,7 +15,7 @@ class ItemColetavel {
   });
 }
 
-final List<ItemColetavel> itensColetaveis = [
+final List<ItemColetavel> itensColetaveis = [ // Lista de itens coletáveis com as respetivas imagens
   ItemColetavel(
     nome: 'Caixa de Bombom de Coração',
     descricao: 'uma caixa de bombom em formato de coração, para o dia dos namorados.',
@@ -80,7 +80,7 @@ final List<ItemColetavel> itensColetaveis = [
 
 ];
 
-class ItensColetaveisPage extends StatelessWidget {
+class ItensColetaveisPage extends StatelessWidget { 
   const ItensColetaveisPage({super.key});
 
   @override
@@ -124,7 +124,7 @@ class ItensColetaveisPage extends StatelessWidget {
   }
 }
 
-class _CartaoItemColetavel extends StatelessWidget {
+class _CartaoItemColetavel extends StatelessWidget { // Widget para exibir as informações de cada item coletável na página
   final ItemColetavel item;
 
   const _CartaoItemColetavel({required this.item});

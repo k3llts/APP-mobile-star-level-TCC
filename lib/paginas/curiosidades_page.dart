@@ -5,7 +5,7 @@ class CuriosidadesPage extends StatelessWidget {
   const CuriosidadesPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { // Widget de construção da página de curiosidades
     final List<String> curiosidades = [
       'Timmy e todos os personagens de Timmy Build Your Dates, são baseado nos modelos do jogo Human Fall Flat e, sua física foi um dos principais componentes de desenvolvimento.',
       'Kinomeko Neilo, é uma garota brasileira que finge ser japonesa, pra se destacar mais como cantora no Japão, segundo ela mesma, isso ajuda bastante.',

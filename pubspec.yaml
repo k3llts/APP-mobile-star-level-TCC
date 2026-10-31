@@ -25,3 +25,7 @@ flutter:
   assets:
     - assets/imagens/
 
+  fonts:
+    - family: fonte_pixelada_do_undertale_hahaha
+      fonts:
+        - asset: assets/fonts/8bitoperator_jve.ttf
