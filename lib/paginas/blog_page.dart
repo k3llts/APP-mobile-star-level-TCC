@@ -233,7 +233,7 @@ class BlogPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Image.asset(
-                                'assets/imagens/Bluesky_Logo.webp',
+                                'assets/imagens/icones_de_apps/Bluesky_Logo.webp',
                                 width: 20,
                                 height: 20,
                                 filterQuality: FilterQuality.none,
@@ -247,7 +247,7 @@ class BlogPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Image.asset(
-                                'assets/imagens/X_logo.png',
+                                'assets/imagens/icones_de_apps/X_logo.png',
                                 width: 20,
                                 height: 20,
                                 filterQuality: FilterQuality.none,

@@ -36,7 +36,7 @@ class ControlesPage extends StatelessWidget {
               ClipRRect(
                borderRadius: BorderRadius.circular(8),
                child: Image.asset(
-              'assets/imagens/ensinandoBotoes.gif',
+              'assets/imagens/controles/ensinandoBotoes.gif',
                width: 150,
                height: 150,
                fit: BoxFit.contain, //isso faz com que a imagem se ajuste dentro do espaço disponível, mantendo sua proporção
@@ -53,7 +53,7 @@ class ControlesPage extends StatelessWidget {
                    ClipRRect(
                borderRadius: BorderRadius.circular(8),
                child: Image.asset(
-              'assets/imagens/ensinando a pular.gif',
+              'assets/imagens/controles/ensinando a pular.gif',
                width: 150,
                height: 150,
                fit: BoxFit.contain, //isso faz com que a imagem se ajuste dentro do espaço disponível, mantendo sua proporção

@@ -24,7 +24,12 @@ flutter:
 
   assets:
     - assets/imagens/
-
+    - assets/imagens/produtos_do_mercado/
+    - assets/imagens/fotos_da_equipe/
+    - assets/imagens/controles/
+    - assets/imagens/coletaveis/
+    - assets/imagens/icones_de_apps/
+    - assets/imagens/lista_de_personagens/
   fonts:
     - family: fonte_pixelada_do_undertale_hahaha
       fonts:

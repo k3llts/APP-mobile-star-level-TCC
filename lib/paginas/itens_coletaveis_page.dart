@@ -5,12 +5,14 @@ class ItemColetavel { // Classe para representar um item coletável
   final String nome;
   final String descricao;
   final String qualidade;
+  final String preco;
   final String caminhoImagem;
 
   const ItemColetavel({
     required this.nome,
     required this.descricao,
     required this.qualidade,
+    required this.preco,
     required this.caminhoImagem,
   });
 }
@@ -18,66 +20,67 @@ class ItemColetavel { // Classe para representar um item coletável
 final List<ItemColetavel> itensColetaveis = [ // Lista de itens coletáveis com as respetivas imagens
   ItemColetavel(
     nome: 'Caixa de Bombom de Coração',
-    descricao: 'uma caixa de bombom em formato de coração, para o dia dos namorados.',
+    descricao: 'uma caixa de bombom em formato de coração, mostra o quanto você ama o(a) seu(sua) namorado(a).',
     qualidade: 'Médio',
-    caminhoImagem: 'assets/imagens/caixabombom.jpeg',
+    preco: 'R\$ 99,99',
+    caminhoImagem: 'assets/imagens/coletaveis/caixabombom.jpeg',
   ),
   ItemColetavel(
     nome: 'CAIXA DE BOMBOM SUPER NORMAL',
-    descricao: 'Uma caixa de bombom de marca genetica...',
+    descricao: 'Uma caixa... de bombom de marca... super genérica... pro dia dos Namorados.',
     qualidade: 'Comum',
-    caminhoImagem: 'assets/imagens/caixahorrorosabombom.jpeg',
+    preco: 'R\$ 19,90',
+    caminhoImagem: 'assets/imagens/coletaveis/caixahorrorosabombom.jpeg',
   ),
-
-   ItemColetavel(
+  ItemColetavel(
     nome: 'Urso de Pelucia',
-    descricao: 'ursinho de pelucinha como presente para o dia dos namorados.',
+    descricao: 'ursinho de pelucinha super fofinho, otimo como presente para o dia dos namorados.',
     qualidade: 'Bom',
-    caminhoImagem: 'assets/imagens/urso.jpeg',
+    preco: 'R\$ 49,90',
+    caminhoImagem: 'assets/imagens/coletaveis/urso.jpeg',
   ),
-
   ItemColetavel(
     nome: 'Bengala Doce',
-    descricao: 'bengala doce de natal.',
+    descricao: 'uma bengala feita de açúcar caramelizado, nada demais pro dia de Natal.',
     qualidade: 'Comum',
-    caminhoImagem: 'assets/imagens/bengaladoce.png',
+    preco: 'R\$ 4,50',
+    caminhoImagem: 'assets/imagens/coletaveis/bengaladoce.png',
   ),
-
   ItemColetavel(
     nome: 'Globo de Neve',
-    descricao: 'Um globo de natal, feito pra presentear alguém especial.',
+    descricao: 'Um globo de natal, perfito para presentear alguém especial no Natal.',
     qualidade: 'Bom',
-    caminhoImagem: 'assets/imagens/globodeneve.png',
+    preco: 'R\$ 34,90',
+    caminhoImagem: 'assets/imagens/coletaveis/globodeneve.png',
   ),
-
-   ItemColetavel(
+  ItemColetavel(
     nome: 'Panetone',
-    descricao: 'Penetone, daqueles de frutinhas.',
+    descricao: 'Penetone, daqueles de frutinhas. É pro natal.',
     qualidade: 'Médio',
-    caminhoImagem: 'assets/imagens/panetone.png',
+    preco: '',
+    caminhoImagem: 'assets/imagens/coletaveis/panetone.png',
   ),
-
   ItemColetavel(
     nome: 'The cooler ovo de pascoa',
-    descricao: 'Ovo de pascoa de supermercado com orelhas de coelho.',
+    descricao: 'Ovo de pascoa de supermercado com orelhas de coelho. Um exelente presente de pascoa para quem gosta de chocolate.',
     qualidade: 'Bom',
-    caminhoImagem: 'assets/imagens/ovodepascoacomorelhas.png',
+    preco: 'R\$ 49,90',
+    caminhoImagem: 'assets/imagens/coletaveis/ovodepascoacomorelhas.png',
   ),
-
-   ItemColetavel(
-    nome: 'Coelho Choculatudinho',
-    descricao: 'Um cuelhão de chocolate pra pascoa.',
-    qualidade: 'Médio',
-    caminhoImagem: 'assets/imagens/coelhodechocolate.jpeg',
-  ),
-
   ItemColetavel(
-    nome: 'Ovo de Pascoa Normal',
+    nome: 'Coelho Chocolatudinho',
+    descricao: 'Um coelhão de dourado feito de chocolate para a pascoa.',
+    qualidade: 'Médio',
+    preco: 'R\$ 19,90',
+    caminhoImagem: 'assets/imagens/coletaveis/coelhodechocolate.jpeg',
+  ),
+  ItemColetavel(
+    nome: 'Cesta de Ovos Coloridinhos',
     descricao: 'Uma opção de presente de pascoa caso você esteja mais apertado esse mês.',
     qualidade: 'Comum',
-    caminhoImagem: 'assets/imagens/ovodepascoanormal.png',
+    preco: 'R\$ 59,90',
+    caminhoImagem: 'assets/imagens/coletaveis/cesta de ovos.png',
   ),
-
 ];
 
 class ItensColetaveisPage extends StatelessWidget { 
@@ -124,10 +127,48 @@ class ItensColetaveisPage extends StatelessWidget {
   }
 }
 
-class _CartaoItemColetavel extends StatelessWidget { // Widget para exibir as informações de cada item coletável na página
+class _CartaoItemColetavel extends StatelessWidget {
   final ItemColetavel item;
 
   const _CartaoItemColetavel({required this.item});
+
+  // Função para abrir a imagem inteira num pop-up ao clicar
+  void _mostrarImagemAmpliada(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.black.withOpacity(0.9),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Center(
+                child: InteractiveViewer(
+                  panEnabled: true,
+                  boundaryMargin: const EdgeInsets.all(20),
+                  minScale: 0.5,
+                  maxScale: 4,
+                  child: Image.asset(
+                    item.caminhoImagem,
+                    fit: BoxFit.cover,
+                    filterQuality: FilterQuality.none,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 10,
+              right: 10,
+              child: IconButton(
+                icon: const Icon(Icons.close, color: Colors.white, size: 30),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,22 +182,26 @@ class _CartaoItemColetavel extends StatelessWidget { // Widget para exibir as in
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Imagem do Item Coletável
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(
-              item.caminhoImagem,
-              width: 90,
-              height: 90,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  width: 90,
-                  height: 90,
-                  color: const Color(0xFF121212),
-                  child: const Icon(Icons.image_not_supported, color: Colors.white54),
-                );
-              },
+          // Imagem do Item Coletável com clique para ampliar
+          GestureDetector(
+            onTap: () => _mostrarImagemAmpliada(context),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                width: 90,
+                height: 90,
+                color: const Color(0xFF121212),
+                child: Image.asset(
+                  item.caminhoImagem,
+                  fit: BoxFit.cover, // Garante que a imagem inteira aparece sem cortes
+                  filterQuality: FilterQuality.none, // Mantém nítido para pixel art
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Center(
+                      child: Icon(Icons.image_not_supported, color: Colors.white54),
+                    );
+                  },
+                ),
+              ),
             ),
           ),
           const SizedBox(width: 16),
@@ -174,33 +219,51 @@ class _CartaoItemColetavel extends StatelessWidget { // Widget para exibir as in
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 4),
-                // Exibe o nível de qualidade estilizado
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFB800E5).withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: const Color(0xFFB800E5)),
-                  ),
-                  child: Text(
-                    'Qualidade: ${item.qualidade}',
+                const SizedBox(height: 6),
+
+                // Linha com a qualidade à esquerda e o preço à direita
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFB800E5).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(color: const Color(0xFFB800E5)),
+                      ),
+                      child: Text(
+                        'Qualidade: ${item.qualidade}',
+                        style: const TextStyle(
+                          color: Color(0xFFD455F5),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    if (item.preco.isNotEmpty)
+                      Text(
+                        item.preco,
+                        style: const TextStyle(
+                          color: Color(0xFFFFE600), // Destaque em amarelo retro
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                  ],
+                ),
+
+                if (item.descricao.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    item.descricao,
                     style: const TextStyle(
-                      color: Color(0xFFD455F5),
+                      color: Colors.white70,
                       fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                      height: 1.3,
                     ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  item.descricao,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 12,
-                    height: 1.3,
-                  ),
-                ),
+                ],
               ],
             ),
           ),
