@@ -6,6 +6,7 @@ import '../paginas/controles_page.dart';
 import '../paginas/curiosidades_page.dart';
 import '../paginas/sobre_page.dart';
 import '../paginas/blog_page.dart';
+import '../paginas/gamificacao_page.dart';
 
 class BarraNavegacao extends StatelessWidget {
   const BarraNavegacao({super.key});
@@ -20,7 +21,7 @@ class BarraNavegacao extends StatelessWidget {
         children: [
           const Spacer(),
           
-          //Botão Blog Clicável
+          // Botão Blog Clicável
           InkWell(
             onTap: () {
               Navigator.pushReplacement(
@@ -39,7 +40,7 @@ class BarraNavegacao extends StatelessWidget {
             child: const Row(
               children: [
                 _LinkNavegacao(texto: 'Jogos'),
-                Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 212, 0, 255), size: 18),// cor do ícone da seta
+                Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 212, 0, 255), size: 18), // cor do ícone da seta
               ],
             ),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -61,35 +62,42 @@ class BarraNavegacao extends StatelessWidget {
               ),
               const PopupMenuDivider(height: 1),
               const PopupMenuItem<String>(
-                value: 'personagens',// Adiciona a propriedade value para identificar o item selecionado
+                value: 'gamificacao', // Primeira opção do menu
+                child: Padding(
+                  padding: EdgeInsets.only(left: 12.0),
+                  child: Text('• Gamificação', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              const PopupMenuItem<String>(
+                value: 'personagens',
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Lista de Personagens', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'produtos',// Adiciona a propriedade value para identificar o item selecionado
+                value: 'produtos',
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Catálogo de Produtos', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'itens',// Adiciona a propriedade value para identificar o item selecionado
+                value: 'itens',
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Itens Coletáveis', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'controles',// Adiciona a propriedade value para identificar o item selecionado
+                value: 'controles',
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Lista de Controles', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
-                value: 'curiosidades',// Adiciona a propriedade value para identificar o item selecionado
+                value: 'curiosidades',
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
                   child: Text('• Lista de Curiosidades', style: TextStyle(color: Colors.white)),
@@ -100,10 +108,6 @@ class BarraNavegacao extends StatelessWidget {
               _navegarPara(context, value);
             },
           ),
-
-          const SizedBox(width: 15),
-          const _LinkNavegacao(texto: 'Produtos'),
-          const SizedBox(width: 15),
 
           // Botão Sobre Clicável
           InkWell(
@@ -120,14 +124,16 @@ class BarraNavegacao extends StatelessWidget {
     );
   }
 
-// Função para navegar para a página selecionada, substituindo a tela atual.
+  // Função para navegar para a página selecionada, substituindo a tela atual.
   void _navegarPara(BuildContext context, String value) {
     Widget proximaTela;
-    if (value == 'produtos') { // Verifica se o valor selecionado é 'produtos'
+    if (value == 'gamificacao') {
+      proximaTela = const GamificacaoPage();
+    } else if (value == 'produtos') {
       proximaTela = const CatalogoProdutosPage();
-    } else if (value == 'itens') { // Verifica se o valor selecionado é 'itens'
+    } else if (value == 'itens') {
       proximaTela = const ItensColetaveisPage();
-    } else if (value == 'controles') { // Verifica se o valor selecionado é 'controles'
+    } else if (value == 'controles') {
       proximaTela = const ControlesPage();
     } else if (value == 'curiosidades') {
       proximaTela = const CuriosidadesPage();
@@ -147,7 +153,7 @@ class _LinkNavegacao extends StatelessWidget {
 
   const _LinkNavegacao({required this.texto});
 
-//controle dos textos da barra de navegação, cor, tamanho e tipo da fonte
+  // Controle dos textos da barra de navegação, cor, tamanho e tipo da fonte
   @override
   Widget build(BuildContext context) {
     return Text(

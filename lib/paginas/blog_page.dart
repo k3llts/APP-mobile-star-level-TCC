@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../componentes/barra_navegacao.dart';
 import 'artigo_gamificacao_page.dart'; // Importa a página do artigo sobre gamificação
+import 'newsletter_page.dart'; // Importa a página de inscrição na Mailing List
 
 class BlogPage extends StatelessWidget {
   const BlogPage({super.key});
@@ -149,6 +150,7 @@ class BlogPage extends StatelessWidget {
                   // BLOCO DE DESTAQUE COM O BOTÃO DE GAMIFICAÇÃO
                   // ===================================================
                   Container(
+                    width: double.infinity,
                     padding: const EdgeInsets.all(24),
                     decoration: BoxDecoration(
                       color: const Color(0xFF0A0A23), // Fundo azulado/escuro estilo site retrô
@@ -258,7 +260,79 @@ class BlogPage extends StatelessWidget {
                       ],
                     ),
                   ),
+
+                  const SizedBox(height: 40),
+
                   // ===================================================
+                  // BLOCO DA NEWSLETTER / MAILING LIST NO FINAL DO BLOG
+                  // ===================================================
+                  const Center(
+                    child: Text(
+                      'NOTICIAS E ATUALIZAÇÕES',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF000044), // Azul escuro estilo Undertale/Deltarune
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Inscreva-se para receber novidades gratuitas por e-mail sobre o desenvolvimento do nosso jogo!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            height: 1.5,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+
+                        // Botão que leva para a NewsletterPage
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const NewsletterPage(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 28,
+                              vertical: 16,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF000044),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.white, width: 2),
+                            ),
+                            child: const Text(
+                              'STAR LEVEL / TIMMY\nLISTAS DE E-MAILS',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFFFFE600),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                height: 1.4,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
 
                   const SizedBox(height: 40),
                 ],

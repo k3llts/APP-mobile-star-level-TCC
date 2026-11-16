@@ -1,64 +1,38 @@
 import 'package:flutter/material.dart';
 import '../componentes/barra_navegacao.dart';
 
-class Personagem { // Classe que representa um personagem com nome, descrição e subtítulo (opcional)
+class Personagem {
   final String nome;
   final String descricao;
   final String? subtitulo;
+  final String? caminhoImagem;
 
   const Personagem({
     required this.nome,
     required this.descricao,
     this.subtitulo,
+    this.caminhoImagem,
   });
 }
 
-const List<Personagem> personagens = [ // Lista de personagens com suas descrições e subtítulos (se houver)
+const List<Personagem> personagens = [
   Personagem(
-    nome: 'M.Genérico',
-    descricao:
-        'Um rapaz perculiar, de certa forma... ele não possui nem um pouco de personalidade própria. A personalidade dele é inteiramente baseada em desenhos animados japoneses, que tenham um protagonista triste.',
+    nome: 'Timmy (Timóteo)',
+    subtitulo: 'Protagonista',
+    descricao: 'Timmy é o personagem principal do jogo, controlado pelo jogador. Um jovem brasileiro que, ao perceber que sua rotina profissional acabou afastando-o de sua namorada, decide buscar uma maneira de reconstruir essa conexão. Sua jornada acontece por meio da exploração, da coleta de presentes e da preparação de encontros especiais.',
+    caminhoImagem: 'assets/imagens/lista_de_personagens/timmy-icon.png',
   ),
   Personagem(
-    nome: 'M.Cliche',
-    descricao:
-        'Irmão do M.Genérico, ele fala das situações da vida como se fossem cliches baratos de filmes e seres. Ele pode ser bem chato em uma conversa, pois diz que tudo é um cliche. Por sinal, ele não gosta muito de seu irmão.',
+    nome: 'Mr savage',
+    subtitulo: 'Guru do Amor',
+    descricao: 'Mr. Savage é um guru do amor responsável por orientar e desafiar Timmy em sua jornada. Com seus conselhos e desafios, ele apresenta ao protagonista a importância de demonstrar carinho e atenção por meio de gestos significativos. Sua presença contextualiza as missões e introduz os desafios das diferentes fases.',
+    caminhoImagem: 'assets/imagens/lista_de_personagens/savage-icon.png',
   ),
   Personagem(
-    nome: 'M.Obvio',
-    descricao:
-        'Um cara de poucas palavras, mas, quando alguma coisa acontece, ele diz o contexto o que aconteceu, por mais que a outra pessoa tenha visto o que aconteceu. Ele é um rapaz de boas intenções, no entanto, é bobinho demais.',
-  ),
-  Personagem(
-    nome: 'Zé Birulilo',
-    descricao:
-        'Um fulano bem estranho, ele gosta de ver as pessoas de longe, no seu cantinho, que é em qualquer lugar com o seu casaco grande demais. Ele pode dar um pouco de medo com os seus olhos esbugalhados, mas ele nunca fez nada de errado com alguém, até onde se sabe.',
-  ),
-  Personagem(
-    nome: 'A Veja',
-    descricao:
-        'Uma bela senhora fofoqueira, ela gosta de ir ao mercados em todos os domingos, por que é quando tem promoção. Ela gosta de fofocar com as amigas... e com os funcionários também. Dizem que ela sabe de muito mais coisas que acontecem no mercado do que o próprio dono do mercado.',
-  ),
-  Personagem(
-    nome: 'Nerd Gamer',
-    descricao:
-        'Um pequeno jovem que adora vídeo games demais. Ele usa uma blusa cheia de referencias de progamação, animes e games, segundo ele, é pra reforsar esse conceito de nerd. Quando vê a sua vocaloid favorita, ele treme, sua bastante e tenta chegar o mais perto dela possivel. ',
-  ),
-  Personagem(
-    nome: 'Hatsune Miku',
-    descricao:
-        'A vocaloid mais famosa do mundo, e ela está no nosso mercado. Ela é uma das clientes VIP’S do supermercado. Nesses últimos tempos, ela tem reclamado de um menino estranho que tenta chegar perto dela, em qualquer caso, ela sempre estará protegida com o seu ALHO-PORÓ.',
-  ),
-  Personagem(
-    nome: 'Zoiudo',
-    descricao:
-        'Um cara que gosta de um desafio diferenciado, dizem que por conta de um desses desafios, ele já colocou suco de limão nos olhos pra ver se fica verde. As vezes ele invade o nosso mercado à noite pra fazer um desafio de uma noite trancado no nosso mercado... já chamamos a policia.',
-  ),
-  Personagem(
-    nome: 'Kinomeko Neilo',
-    subtitulo: '木野目湖内子',
-    descricao:
-        'Uma garota que tem o sonho de se tornar uma vocaloid famosa. Ela se inspira na Hatsune Miku, mas ainda te falta muito talento para ter algum resultado significativo. Ela gosta de ir ao mercado as vezes.',
+    nome: 'Nala',
+    subtitulo: 'Motivação Narrativa',
+    descricao: 'Nala representa a motivação central da jornada de Timmy. Sua importância está relacionada ao objetivo de reconstruir a conexão afetiva e preparar encontros especiais. Ela estabelece o propósito das aventuras e dá significado aos presentes encontrados durante o jogo.',
+    caminhoImagem: 'assets/imagens/lista_de_personagens/nala-icon.png',
   ),
 ];
 
@@ -70,6 +44,7 @@ class ListaPersonagensPage extends StatelessWidget {
     final largura = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -120,12 +95,34 @@ class CartaoPersonagem extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Moldura com a imagem do personagem
         Container(
-          width: 83,
-          height: 95,
-          color: const Color(0xFF1B00B8),
+          width: 166,
+          height: 190,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 217, 97, 253),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: const Color(0xFFB800E5), width: 1.5),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+            child: personagem.caminhoImagem != null
+                ? Image.asset(
+                    personagem.caminhoImagem!,
+                    fit: BoxFit.contain,
+                    filterQuality: FilterQuality.none,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Center(
+                        child: Icon(Icons.person, color: Colors.white54, size: 40),
+                      );
+                    },
+                  )
+                : const Center(
+                    child: Icon(Icons.person, color: Colors.white54, size: 40),
+                  ),
+          ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 14),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,27 +130,31 @@ class CartaoPersonagem extends StatelessWidget {
               Text(
                 personagem.nome,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 165, 35, 216),
                   fontSize: 22,
                   height: 1.0,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              if (personagem.subtitulo != null)
+              if (personagem.subtitulo != null) ...[
+                const SizedBox(height: 4),
                 Text(
                   personagem.subtitulo!,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,
                     height: 1.1,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
+              ],
+              const SizedBox(height: 6),
               Text(
                 personagem.descricao,
                 style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 11,
-                  height: 1.12,
+                  color: Color.fromARGB(255, 202, 202, 202),
+                  fontSize: 12,
+                  height: 1.3,
                   fontWeight: FontWeight.w400,
                 ),
               ),
