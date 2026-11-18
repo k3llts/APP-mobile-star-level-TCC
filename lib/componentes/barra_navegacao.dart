@@ -7,6 +7,7 @@ import '../paginas/curiosidades_page.dart';
 import '../paginas/sobre_page.dart';
 import '../paginas/blog_page.dart';
 import '../paginas/gamificacao_page.dart';
+import '../paginas/fases_page.dart';
 
 class BarraNavegacao extends StatelessWidget {
   const BarraNavegacao({super.key});
@@ -26,7 +27,7 @@ class BarraNavegacao extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => BlogPage()),
+                MaterialPageRoute(builder: (context) => const BlogPage()),
               );
             },
             child: const _LinkNavegacao(texto: 'Blog'),
@@ -65,7 +66,14 @@ class BarraNavegacao extends StatelessWidget {
                 value: 'gamificacao', // Primeira opção do menu
                 child: Padding(
                   padding: EdgeInsets.only(left: 12.0),
-                  child: Text('• Gamificação', style: TextStyle(color: Colors.white)),
+                  child: Text('• Narrativa', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              const PopupMenuItem<String>(
+                value: 'fases',
+                child: Padding(
+                  padding: EdgeInsets.only(left: 12.0),
+                  child: Text('• Fases do Jogo', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const PopupMenuItem<String>(
@@ -108,6 +116,7 @@ class BarraNavegacao extends StatelessWidget {
               _navegarPara(context, value);
             },
           ),
+          const SizedBox(width: 15),
 
           // Botão Sobre Clicável
           InkWell(
@@ -129,6 +138,8 @@ class BarraNavegacao extends StatelessWidget {
     Widget proximaTela;
     if (value == 'gamificacao') {
       proximaTela = const GamificacaoPage();
+    } else if (value == 'fases') {
+      proximaTela = const FasesPage();
     } else if (value == 'produtos') {
       proximaTela = const CatalogoProdutosPage();
     } else if (value == 'itens') {
