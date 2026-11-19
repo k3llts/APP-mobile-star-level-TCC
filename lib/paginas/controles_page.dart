@@ -73,16 +73,10 @@ class ControlesPage extends StatelessWidget {
                   Text('O menu se abrira durante o funcionamento do jogo pressionando a tecla ESC.\n\nDentro da tela de menu, se encotra:\n\n• Botão de Configurações\n• Botão de Retornar ao Jogo\n• Botão de Retorno ao Título', style: TextStyle(color: Colors.white70)
                   ),
 
-                   SizedBox(height: 20),
-                  Text('Interação com Objetos', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 8),
-                  Text('O jogador tera a oportunidade de interagir com todo e qualquer objeto que tenha essa mecânica de interação pressionando a tecla F.', style: TextStyle(color: Colors.white70)
-                  ),
-
                     SizedBox(height: 20),
                   Text('Lista de Compras', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                   SizedBox(height: 8),
-                  Text('A lista de compras é um item importante, nele é possível ver quais itens que serão necessários para concluir uma fase do jogo.\n\nA lista de compras aparece ao pressionar a tecla R do teclado.', style: TextStyle(color: Colors.white70)
+                  Text('A lista de compras é um item importante, nele é possível ver quais itens que serão necessários para concluir uma fase do jogo.\n\nA lista de compras aparece ao pressionar a tecla E do teclado.', style: TextStyle(color: Colors.white70)
                   ),
                 ],
               ),
