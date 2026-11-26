@@ -65,7 +65,7 @@ lib/
 
 *Observação: a estrutura acima representa uma organização ilustrativa dos principais componentes e páginas. Os nomes e diretórios podem variar conforme a versão atual do projeto.*
 
-## 🚀 Como executar o projeto
+## Como executar o projeto
 
 Para executar o aplicativo em seu ambiente de desenvolvimento, siga as etapas:
 
