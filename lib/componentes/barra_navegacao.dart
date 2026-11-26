@@ -20,8 +20,31 @@ class BarraNavegacao extends StatelessWidget {
       color: const Color.fromARGB(255, 56, 56, 56), // Cor de fundo da barra de navegação
       child: Row(
         children: [
+          // Imagem PNG no canto esquerdo
+          InkWell(
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const BlogPage()),
+              );
+            },
+            child: Image.asset(
+              'assets/imagens/fases/estrla.png', // Altere para o caminho real do seu PNG
+              height: 42,
+              fit: BoxFit.contain,
+              filterQuality: FilterQuality.none,
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(
+                  Icons.image_not_supported,
+                  color: Colors.white54,
+                  size: 24,
+                );
+              },
+            ),
+          ),
+
           const Spacer(),
-          
+
           // Botão Blog Clicável
           InkWell(
             onTap: () {
@@ -41,7 +64,11 @@ class BarraNavegacao extends StatelessWidget {
             child: const Row(
               children: [
                 _LinkNavegacao(texto: 'Jogos'),
-                Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 212, 0, 255), size: 18), // cor do ícone da seta
+                Icon(
+                  Icons.arrow_drop_down,
+                  color: Color.fromARGB(255, 212, 0, 255),
+                  size: 18,
+                ), // cor do ícone da seta
               ],
             ),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[

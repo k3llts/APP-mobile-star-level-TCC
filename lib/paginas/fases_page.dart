@@ -21,21 +21,21 @@ const List<Fase> fases = [
     periodo: 'Páscoa',
     descricao:
         'Durante as celebrações da Páscoa, Timmy embarca em uma aventura pelo mercado Sakolla em busca de presentes especiais. Em meio aos chocolates, ovos e decorações temáticas, o jogador precisa explorar o ambiente, superar obstáculos e encontrar os itens necessários para completar sua missão. A fase introduz os desafios de exploração e coleta, proporcionando o primeiro contato com as mecânicas do jogo.',
-    caminhoImagem: 'assets/imagens/fases/pascoa.png',
+    caminhoImagem: 'assets/imagens/fases/dia de pascoa.jpeg',
   ),
   Fase(
     titulo: 'As Mãos do Cupido',
     periodo: 'Dia dos Namorados',
     descricao:
         'Com a chegada do Dia dos Namorados, Timmy busca preparar uma surpresa especial para Nala. O mercado Sakolla apresenta uma ambientação romântica, com produtos e presentes relacionados à data. Nesta etapa, o jogador enfrenta desafios mais elaborados, utilizando suas habilidades de movimentação, exploração e resolução de puzzles para encontrar os presentes adequados e concluir a missão.',
-    caminhoImagem: 'assets/imagens/fases/namorados.png',
+    caminhoImagem: 'assets/imagens/fases/dia dos namorados.jpeg',
   ),
   Fase(
     titulo: 'A época mais linda',
     periodo: 'Natal',
     descricao:
         'Em meio ao clima natalino, Timmy inicia sua última aventura no mercado Sakolla, buscando os presentes que tornarão essa celebração ainda mais especial. Com uma ambientação repleta de decorações, produtos festivos e novos desafios, o jogador precisa utilizar tudo o que aprendeu nas fases anteriores para encontrar os itens e concluir sua jornada. A etapa representa o encerramento da experiência, conectando a aventura à importância de demonstrar carinho e compartilhar momentos especiais.',
-    caminhoImagem: 'assets/imagens/fases/natal.png',
+    caminhoImagem: 'assets/imagens/fases/dia de natal.jpeg',
   ),
 ];
 

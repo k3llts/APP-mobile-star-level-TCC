@@ -57,7 +57,7 @@ final List<ItemColetavel> itensColetaveis = [ // Lista de itens coletáveis com 
     nome: 'Panetone',
     descricao: 'Penetone, daqueles de frutinhas. É pro natal.',
     qualidade: 'Médio',
-    preco: '',
+    preco: 'R\$ 22,90',
     caminhoImagem: 'assets/imagens/coletaveis/panetone.png',
   ),
   ItemColetavel(

@@ -66,13 +66,32 @@ class ControlesPage extends StatelessWidget {
                   SizedBox(height: 8),
                   Text('Os botões esquerdo e direito do mouse executa a mecanica de levantamento de braços do personagem.\n\nAssim, fazendo com que o jogador consiga alcansar objetos que estão no alto e também, para que consiga escalar em obstaculos presentes no jogo.', style: TextStyle(color: Colors.white70)
                   ),
-                
+                  ClipRRect(
+               borderRadius: BorderRadius.circular(8),
+               child: Image.asset(
+              'assets/imagens/controles/GifSegurar.gif',
+               width: 300,
+               height: 200,
+               fit: BoxFit.contain, //isso faz com que a imagem se ajuste dentro do espaço disponível, mantendo sua proporção
+                 
+               ),
+               ),
+
                 SizedBox(height: 20),
                   Text('Menu', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                   SizedBox(height: 8),
                   Text('O menu se abrira durante o funcionamento do jogo pressionando a tecla ESC.\n\nDentro da tela de menu, se encotra:\n\n• Botão de Configurações\n• Botão de Retornar ao Jogo\n• Botão de Retorno ao Título', style: TextStyle(color: Colors.white70)
                   ),
-
+     ClipRRect(
+               borderRadius: BorderRadius.circular(8),
+               child: Image.asset(
+              'assets/imagens/controles/menu.jpeg',
+               width: 600,
+               height: 200,
+               fit: BoxFit.contain, //isso faz com que a imagem se ajuste dentro do espaço disponível, mantendo sua proporção
+                 
+               ),
+               ),
                     SizedBox(height: 20),
                   Text('Lista de Compras', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                   SizedBox(height: 8),

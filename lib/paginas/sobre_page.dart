@@ -15,47 +15,93 @@ class Integrante { // Classe para representar um integrante do grupo de TCC
   });
 }
 
+// Caminho da foto da equipe completa
+const String caminhoFotoEquipe = 'assets/imagens/fotos_da_equipe/todos.jpeg';
+
 // Lista de integrantes do grupo de TCC
 const List<Integrante> integrantes = [
   Integrante(
     nome: 'Kelvin Pereira Lima',
     cargo: 'Modelador 3D / Programador mobile',
-    descricao: 'Desenvolveu a estrutura do aplicativo em Flutter, criou a interface visual e implementou o sistema de navegação entre as telas.\n\nAlém disso, foi responsável pela modelagem 3D dos objetos do jogo e alguns dos NPCs, garantindo a integração entre os elementos visuais e a funcionalidade do aplicativo.',
-    caminhoImagem: 'assets/imagens/fotos_da_equipe/kelvin serio.jpg', 
+    descricao:
+        'Desenvolveu a estrutura do aplicativo em Flutter, criou a interface visual e implementou o sistema de navegação entre as telas.\n\nAlém disso, foi responsável pela modelagem 3D dos objetos do jogo e alguns dos NPCs, garantindo a integração entre os elementos visuais e a funcionalidade do aplicativo.',
+    caminhoImagem: 'assets/imagens/fotos_da_equipe/kelvin.jpeg',
   ),
   Integrante(
     nome: 'Victor Mollo Cabral',
     cargo: 'Criador de texturas 3D / Designer e modelador de Personagens',
-    descricao: 'Principal responsável pela criação das texturas 3D dos objetos do jogo, garantindo que eles tenham uma aparência cartoonesca e atraente.\n\nAlém disso, contribuiu para o design e modelagem de personagens, trazendo vida e personalidade aos elementos do jogo.',
-    caminhoImagem: 'assets/imagens/fotos_da_equipe/Mollo.jpeg', 
+    descricao:
+        'Principal responsável pela criação das texturas 3D dos objetos do jogo, garantindo que eles tenham uma aparência cartoonesca e atraente.\n\nAlém disso, contribuiu para o design e modelagem de personagens, trazendo vida e personalidade aos elementos do jogo.',
+    caminhoImagem: 'assets/imagens/fotos_da_equipe/Mollo.jpeg',
   ),
   Integrante(
     nome: 'Miguel Fauzi Carvalho Santos',
     cargo: 'Documentação / DS / Roterista',
-    descricao: 'Responsável pela documentação do projeto, garantindo que todas as etapas do desenvolvimento fossem registradas e organizadas.\n\nAlém disso, atuou como roteirista, contribuindo para a criação da narrativa do jogo',
+    descricao:
+        'Responsável pela documentação do projeto, garantindo que todas as etapas do desenvolvimento fossem registradas e organizadas.\n\nAlém disso, atuou como roteirista, contribuindo para a criação da narrativa do jogo',
     caminhoImagem: 'assets/imagens/fotos_da_equipe/miguel.jpeg',
   ),
   Integrante(
     nome: 'Henrique Tomazine',
     cargo: 'Auxiliar de 3D / Level Designer',
-    descricao: 'Responsável por auxiliar na modelagem 3D de objetos do jogo, além de contribuir para o design dos níveis e ambientes do jogo.',
+    descricao:
+        'Responsável por auxiliar na modelagem 3D de objetos do jogo, além de contribuir para o design dos níveis e ambientes do jogo.',
     caminhoImagem: 'assets/imagens/fotos_da_equipe/flakes.jpeg',
-  )
-  ,
+  ),
   Integrante(
     nome: 'Daniel de Souza',
     cargo: 'Programador Principal',
-    descricao: 'Responsável pela programação do jogo, incluindo a implementação da física, mecânicas de jogo e integração com os elementos visuais.',
-    caminhoImagem: 'assets/imagens/fotos_da_equipe/mini pekka.jpeg', 
-  )
+    descricao:
+        'Responsável pela programação do jogo, incluindo a implementação da física, mecânicas de jogo e integração com os elementos visuais.',
+    caminhoImagem: 'assets/imagens/fotos_da_equipe/mini pekka.jpeg',
+  ),
 ];
 
-class SobrePage extends StatelessWidget { 
+class SobrePage extends StatelessWidget {
   const SobrePage({super.key});
+
+  void _mostrarFotoAmpliada(BuildContext context, String caminho) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.black.withValues(alpha: 0.92),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Center(
+                child: InteractiveViewer(
+                  panEnabled: true,
+                  boundaryMargin: const EdgeInsets.all(20),
+                  minScale: 0.5,
+                  maxScale: 4,
+                  child: Image.asset(
+                    caminho,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 10,
+              right: 10,
+              child: IconButton(
+                icon: const Icon(Icons.close, color: Colors.white, size: 30),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final largura = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -77,7 +123,9 @@ class SobrePage extends StatelessWidget {
 
             // Cartão com o Texto de Apresentação
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(
+                horizontal: largura > 800 ? largura * 0.15 : 20,
+              ),
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -99,6 +147,64 @@ class SobrePage extends StatelessWidget {
               ),
             ),
 
+            const SizedBox(height: 36),
+
+            // Foto da Equipe Inteira antes dos Integrantes
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: largura > 800 ? largura * 0.15 : 20,
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF1E1E1E),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: const Color(0xFFB800E5), width: 1.5),
+                ),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () => _mostrarFotoAmpliada(context, caminhoFotoEquipe),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Container(
+                          height: largura > 700 ? 340 : 220,
+                          width: double.infinity,
+                          color: const Color(0xFF121212),
+                          child: Image.asset(
+                            caminhoFotoEquipe,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.groups, color: Colors.white38, size: 50),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'Foto da equipe em breve',
+                                    style: TextStyle(color: Colors.white38, fontSize: 12),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Equipe Star Level — Toque na foto para ampliar',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
             const SizedBox(height: 40),
 
             // Seção Integrantes
@@ -115,7 +221,9 @@ class SobrePage extends StatelessWidget {
 
             // Lista dos Integrantes
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(
+                horizontal: largura > 800 ? largura * 0.15 : 20,
+              ),
               child: Column(
                 children: integrantes.map((integrante) {
                   return Padding(
